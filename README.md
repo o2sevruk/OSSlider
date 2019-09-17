@@ -1,2 +1,2 @@
-# os-slider
+# OSSlider
 Lightweight vanilla js slider
