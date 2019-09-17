@@ -1,17 +1,17 @@
 (function (global) {
 	"use strict";
 	
-	let OSSlider = global.OSSlider = function (el, settings) {
+	let O2Slider = global.O2Slider = function (el, settings) {
 		
 		let self = this,
 			defaults = {
 				currentSlide: 0,
 				speed: 400,
 				selectors: {
-					wrapper: ".os-slider-items-wrapper",
-					slide: ".os-slider__item",
-					prev: ".os-slider__prev",
-					next: ".os-slider__next"
+					wrapper: ".o2slider-items-wrapper",
+					slide: ".o2slider__item",
+					prev: ".o2slider__prev",
+					next: ".o2slider__next"
 				}
 			};
 		
@@ -79,7 +79,7 @@
 		
 	};
 	
-	OSSlider.prototype.getWidth = function (collection) {
+	O2Slider.prototype.getWidth = function (collection) {
 		
 		let width = null,
 			i = collection.length;
@@ -94,7 +94,7 @@
 		
 	};
 	
-	OSSlider.prototype.setSlideWidth = function (collection) {
+	O2Slider.prototype.setSlideWidth = function (collection) {
 		
 		let i = collection.length;
 		
@@ -106,7 +106,7 @@
 		
 	};
 	
-	OSSlider.prototype.getCurrentItemWidth = function (element, i) {
+	O2Slider.prototype.getCurrentItemWidth = function (element, i) {
 		
 		return element[i].offsetWidth;
 		
