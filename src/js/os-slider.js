@@ -1,6 +1,7 @@
-(function () {
+(function (global) {
+	"use strict";
 	
-	this.OSSlider = function (el, settings) {
+	let OSSlider = global.OSSlider = function (el, settings) {
 		
 		let self = this,
 			defaults = {
@@ -23,14 +24,14 @@
 			$prev = self.$element.querySelectorAll(options.selectors.prev),
 			$next = self.$element.querySelectorAll(options.selectors.next);
 		
+		let currentSlide = options.currentSlide,
+			slidesLength = self.$element.querySelectorAll(options.selectors.slide).length,
+			leftPosition = -(currentSlide * self.getCurrentItemWidth(self.$element.querySelectorAll(options.selectors.slide), currentSlide));
+		
 		self.setSlideWidth(self.$element.querySelectorAll(options.selectors.slide));
 		
 		$wrapper[0].style.width = `${self.getWidth(self.$element.querySelectorAll(options.selectors.slide))}px`;
 		$wrapper[0].style.transitionDuration = `${options.speed / 1000}s`;
-		
-		let currentSlide = options.currentSlide,
-			slidesLength = self.$element.querySelectorAll(options.selectors.slide).length,
-			leftPosition = -(currentSlide * self.getCurrentItemWidth(self.$element.querySelectorAll(options.selectors.slide), currentSlide));
 		
 		$wrapper[0].style.left = `${leftPosition}px`;
 		
@@ -78,7 +79,6 @@
 		
 	};
 	
-	// eslint-disable-next-line no-undef
 	OSSlider.prototype.getWidth = function (collection) {
 		
 		let width = null,
@@ -94,7 +94,6 @@
 		
 	};
 	
-	// eslint-disable-next-line no-undef
 	OSSlider.prototype.setSlideWidth = function (collection) {
 		
 		let i = collection.length;
@@ -107,11 +106,10 @@
 		
 	};
 	
-	// eslint-disable-next-line no-undef
 	OSSlider.prototype.getCurrentItemWidth = function (element, i) {
 		
 		return element[i].offsetWidth;
 		
 	};
 	
-}());
+}(this));
